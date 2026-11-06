@@ -32,16 +32,15 @@
       color: var(--color-texto);
       font-family: var(--fuente-cuerpo);
       line-height: 1.6;
-      /* Eliminamos el display flex de aquí para que fluya de forma natural */
-      margin: 0;
+      display: block; /* Evita que la pantalla se divida a los lados */
       padding: 20px 10px;
-      display: block; /* Asegura que la página baje en orden vertical */
+      margin: 0;
     }
 
     .contenedor-invitacion {
       max-width: 600px;
       width: 100%;
-      margin: 0 auto; /* Esto centra la tarjeta perfectamente sin fraccionar la pantalla */
+      margin: 0 auto; /* Centra perfectamente la tarjeta */
       background: var(--color-tarjeta);
       border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -315,6 +314,7 @@
         📍 Ver ubicación en Google Maps
       </a>
     </div>
+
     <!-- Sección Código Novios -->
     <div class="seccion">
       <h2 class="seccion-titulo">Lista de Regalos</h2>
