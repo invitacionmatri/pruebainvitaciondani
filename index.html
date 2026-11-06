@@ -29,9 +29,10 @@
 
     body {
       background-image: url('fondo.jpg');
-      background-size: cover;          /* Hace que la imagen cubra toda la pantalla */
-      background-position: center;     /* Centra la imagen */
-      background-attachment: fixed;    /* Fija la imagen para que no se mueva al hacer scroll */
+      background-size: cover;          /* Hace que la imagen cubra toda la pantalla sin deformarse */
+      background-position: center;     /* Centra la imagen perfectamente */
+      background-repeat: no-repeat;    /* Evita que la imagen se repita como mosaico */
+      background-attachment: fixed;    /* Fija la imagen para que de fondo estático al hacer scroll */
       color: var(--color-texto);
       font-family: var(--fuente-cuerpo);
       line-height: 1.6;
