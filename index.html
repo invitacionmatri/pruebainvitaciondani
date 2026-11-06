@@ -32,14 +32,16 @@
       color: var(--color-texto);
       font-family: var(--fuente-cuerpo);
       line-height: 1.6;
-      display: flex;
-      justify-content: center;
+      /* Eliminamos el display flex de aquí para que fluya de forma natural */
+      margin: 0;
       padding: 20px 10px;
+      display: block; /* Asegura que la página baje en orden vertical */
     }
 
     .contenedor-invitacion {
       max-width: 600px;
       width: 100%;
+      margin: 0 auto; /* Esto centra la tarjeta perfectamente sin fraccionar la pantalla */
       background: var(--color-tarjeta);
       border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.05);
