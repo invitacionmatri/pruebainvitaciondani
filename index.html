@@ -29,14 +29,17 @@
 
     body {
       background-image: url('fondo.jpg');
-      background-size: cover;          /* Hace que la imagen cubra toda la pantalla sin deformarse */
-      background-position: center;     /* Centra la imagen perfectamente */
-      background-repeat: no-repeat;    /* Evita que la imagen se repita como mosaico */
-      background-attachment: fixed;    /* Fija la imagen para que de fondo estático al hacer scroll */
+      background-size: cover;          
+      background-position: center;     
+      background-repeat: no-repeat;    
+      background-attachment: fixed;    
       color: var(--color-texto);
       font-family: var(--fuente-cuerpo);
       line-height: 1.6;
-      display: block;
+      display: flex;                   /* <--- Cambiamos a flex para centrar perfectamente */
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;               /* <--- Ocupa toda la altura de la pantalla */
       padding: 20px 10px;
       margin: 0;
     }
@@ -44,12 +47,13 @@
     .contenedor-invitacion {
       max-width: 600px;
       width: 100%;
-      margin: 0 auto;
-      background: var(--color-tarjeta);
+      /* Usamos blanco con un 85% de opacidad para que se alcance a ver el fondo sutilmente atrás */
+      background: rgba(255, 255, 255, 0.88); 
+      backdrop-filter: blur(5px);       /* <--- Efecto borroso elegante en el fondo de la tarjeta */
       border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
       overflow: hidden;
-      border: 1px solid #eaeaea;
+      border: 1px solid rgba(255, 255, 255, 0.4);
       text-align: center;
       padding: 40px 20px;
     }
