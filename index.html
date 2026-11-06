@@ -12,9 +12,9 @@
 
   <style>
     :root {
-      --color-principal: #5c6b57; /* Verde oliva suave */
-      --color-acento: #d4af37;    /* Dorado suave */
-      --color-fondo: #fcfbf7;     /* Blanco cálido */
+      --color-principal: #5c6b57;
+      --color-acento: #d4af37;
+      --color-fondo: #fcfbf7;
       --color-texto: #333333;
       --color-tarjeta: #ffffff;
       --fuente-titulo: 'Cormorant Garamond', serif;
@@ -83,7 +83,6 @@
       margin-bottom: 15px;
     }
 
-    /* Imagen o GIF decorativo principal */
     .banner-img {
       width: 100%;
       max-height: 250px;
@@ -92,7 +91,6 @@
       margin-bottom: 25px;
     }
 
-    /* Botones Interactivos de Asistencia (RSVP) con Hover GIF */
     .contenedor-rsvp {
       display: flex;
       justify-content: center;
@@ -180,7 +178,6 @@
       background-color: #179843;
     }
 
-    /* Caja Código Novios */
     .caja-novios {
       background-color: #f7f9f6;
       border: 1px dashed var(--color-principal);
@@ -208,7 +205,6 @@
       color: #888;
     }
 
-    /* Imagen Clickeable Spotify */
     .spotify-card {
       cursor: pointer;
       border-radius: 12px;
@@ -227,7 +223,6 @@
       border-radius: 12px;
     }
 
-    /* Mensajes flotantes */
     .toast {
       visibility: hidden;
       min-width: 200px;
@@ -279,12 +274,10 @@
 
       <div class="contenedor-rsvp">
         
-        <!-- Opción 1: Confirmo Asistencia (Hover activa gif brindis) -->
+        <!-- Opción 1: Confirmo Asistencia -->
         <div class="opcion-asistencia">
           <div class="contenedor-gif">
-            <img id="img-confirmo" 
-                 src="brindis-estatico.png" 
-                 alt="Brindis Estatico">
+            <img id="img-confirmo" src="brindis-estatico.png" alt="Brindis Estatico">
           </div>
           <button class="btn btn-confirmar"
                   onmouseover="activarGif('img-confirmo', 'brindis-animado.gif')"
@@ -294,12 +287,10 @@
           </button>
         </div>
 
-        <!-- Opción 2: No puedo asistir (Hover activa gif caminando lejos) -->
+        <!-- Opción 2: No puedo asistir -->
         <div class="opcion-asistencia">
           <div class="contenedor-gif">
-            <img id="img-declino" 
-                 src="caminar-estatico.png" 
-                 alt="Caminar Estatico">
+            <img id="img-declino" src="caminar-estatico.png" alt="Caminar Estatico">
           </div>
           <button class="btn btn-declinar"
                   onmouseover="activarGif('img-declino', 'caminar-animado.gif')"
@@ -332,79 +323,3 @@
         <p>Haz clic para copiar el código de novios:</p>
         <div class="codigo-texto" id="codigo-novios">NOVIOS-SOFIA-LUCAS-2026</div>
         <span class="tooltip-copiar">Click para copiar en el portapapeles</span>
-      </div>
-    </div>
-
-    <!-- Sección Lista de Spotify -->
-    <div class="seccion">
-      <h2 class="seccion-titulo">Música & Fiesta 🎵</h2>
-      <p>¡Queremos que la fiesta sea inolvidable! Haz clic en la imagen o en el botón para agregar tus canciones favoritas a nuestra lista colaborativa de Spotify:</p>
-      <br>
-      
-      <div class="spotify-card" onclick="abrirSpotify()">
-        <img src="spotify-banner.jpg" alt="Lista de Spotify de la boda">
-      </div>
-      <br><br>
-      <button class="btn btn-spotify" onclick="abrirSpotify()">
-        🎧 Abrir Lista en Spotify
-      </button>
-    </div>
-
-  </div>
-
-  <!-- Cartel flotante al copiar -->
-  <div id="toast" class="toast">¡Código copiado con éxito!</div>
-
-  <!-- Lógica JavaScript -->
-  <script>
-    // URL de tu formulario de Google Forms (Reemplazar con el enlace real)
-    const URL_GOOGLE_FORM = "https://docs.google.com/forms/";
-
-    // URL de tu Playlist colaborativa de Spotify (Reemplazar con la real)
-    const URL_SPOTIFY = "https://open.spotify.com/";
-
-    // Función para activar el GIF animado al hacer hover (reiniciándolo desde el inicio con ?t=)
-    function activarGif(idElemento, rutaGif) {
-      document.getElementById(idElemento).src = rutaGif + '?t=' + new Date().getTime();
-    }
-
-    // Función para volver a la imagen fija al quitar el cursor
-    function desactivarGif(idElemento, rutaEstatico) {
-      document.getElementById(idElemento).src = rutaEstatico;
-    }
-
-    // Abrir Formulario de Confirmación
-    function abrirGoogleForm() {
-      window.open(URL_GOOGLE_FORM, '_blank');
-    }
-
-    // Acción para cuando declinan asistencia
-    function declinarAsistencia() {
-      alert("Lamentamos mucho que no nos puedas acompañar, ¡gracias por avisarnos!");
-    }
-
-    // Copiar Código de Novios al portapapeles
-    function copiarCodigo(texto) {
-      navigator.clipboard.writeText(texto).then(() => {
-        mostrarToast();
-      }).catch(err => {
-        console.error("Error al copiar: ", err);
-      });
-    }
-
-    // Mostrar notificación flotante
-    function mostrarToast() {
-      const toast = document.getElementById("toast");
-      toast.className = "toast show";
-      setTimeout(() => { 
-        toast.className = toast.className.replace("show", ""); 
-      }, 3000);
-    }
-
-    // Abrir Lista de Spotify
-    function abrirSpotify() {
-      window.open(URL_SPOTIFY, '_blank');
-    }
-  </script>
-</body>
-</html>
