@@ -92,7 +92,7 @@
       margin-bottom: 25px;
     }
 
-    /* Botones Interactivos de Asistencia (RSVP) */
+    /* Botones Interactivos de Asistencia (RSVP) con Hover GIF */
     .contenedor-rsvp {
       display: flex;
       justify-content: center;
@@ -264,8 +264,8 @@
 
   <div class="contenedor-invitacion">
 
-    <!-- Banner Decorativo (Puede ser una foto o un GIF de portada) -->
-    <img src="https://via.placeholder.com/600x250/5c6b57/ffffff?text=Imagen+o+GIF+Portada" alt="Portada Boda" class="banner-img">
+    <!-- Banner Principal -->
+    <img src="portada.jpg" alt="Portada Boda" class="banner-img">
 
     <!-- Encabezado -->
     <h1 class="header-nombres">Sofía & Lucas</h1>
@@ -275,139 +275,17 @@
     <!-- Sección RSVP con Efecto Hover en los GIF -->
     <div class="seccion">
       <h2 class="seccion-titulo">Confirmación de Asistencia</h2>
-      <p>Por favor confirma tu asistencia antes del 15 de Octubre.</p>
+      <p>Por favor confirma tu asistencia e indícanos tus preferencias de comida o alergias antes del 15 de Octubre.</p>
 
       <div class="contenedor-rsvp">
         
-        <!-- Opción 1: Confirmo -->
+        <!-- Opción 1: Confirmo Asistencia (Hover activa gif brindis) -->
         <div class="opcion-asistencia">
           <div class="contenedor-gif">
-            <!-- Imagen estática / GIF animado 1 -->
             <img id="img-confirmo" 
                  src="brindis-estatico.png" 
-                 alt="Confirmar">
+                 alt="Brindis Estatico">
           </div>
           <button class="btn btn-confirmar"
-                  onmouseover="activarGif('img-confirmo', 'https://via.placeholder.com/130/5c6b57/ffffff?text=GIF+Brindis')"
-                  onmouseout="desactivarGif('img-confirmo', 'https://via.placeholder.com/130/e0e0e0/5c6b57?text=Brindis+Estatico')"
-                  onclick="abrirGoogleForm()">
-            ¡Sí, confirmo! 🥂
-          </button>
-        </div>
-
-        <!-- Opción 2: No puedo asistir -->
-        <div class="opcion-asistencia">
-          <div class="contenedor-gif">
-            <!-- Imagen estática / GIF animado 2 -->
-            <img id="img-declino" 
-                 src="https://via.placeholder.com/130/e0e0e0/777777?text=Caminar+Estatico" 
-                 alt="Declinar">
-          </div>
-          <button class="btn btn-declinar"
-                  onmouseover="activarGif('img-declino', 'https://via.placeholder.com/130/777777/ffffff?text=GIF+Caminando')"
-                  onmouseout="desactivarGif('img-declino', 'https://via.placeholder.com/130/e0e0e0/777777?text=Caminar+Estatico')"
-                  onclick="declinarAsistencia()">
-            No podré asistir 😢
-          </button>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Sección Ubicación -->
-    <div class="seccion">
-      <h2 class="seccion-titulo">¿Dónde & Cuándo?</h2>
-      <p><strong>Fecha:</strong> Sábado, 12 de Noviembre - 18:00 hrs</p>
-      <p><strong>Lugar:</strong> Casona los Naranjos, Santiago</p>
-      <br>
-      <a href="https://maps.google.com" target="_blank" class="btn btn-ubicacion">
-        📍 Ver ubicación en Google Maps
-      </a>
-    </div>
-
-    <!-- Sección Código Novios -->
-    <div class="seccion">
-      <h2 class="seccion-titulo">Lista de Regalos</h2>
-      <p>Tu presencia es nuestro mejor regalo, pero si deseas hacernos un detalle:</p>
-      
-      <div class="caja-novios" onclick="copiarCodigo('NOVIOS-SOFIA-LUCAS-2026')">
-        <p>Haz clic para copiar el código de novios:</p>
-        <div class="codigo-texto" id="codigo-novios">NOVIOS-SOFIA-LUCAS-2026</div>
-        <span class="tooltip-copiar">Click para copiar en el portapapeles</span>
-      </div>
-    </div>
-
-    <!-- Sección Lista de Spotify -->
-    <div class="seccion">
-      <h2 class="seccion-titulo">Música & Fiesta 🎵</h2>
-      <p>¡Queremos que la fiesta sea inolvidable! Haz clic en la imagen para agregar tus canciones favoritas a nuestra lista de Spotify:</p>
-      <br>
-      
-      <div class="spotify-card" onclick="abrirSpotify()">
-        <img src="https://via.placeholder.com/320x160/1DB954/ffffff?text=Haz+click+para+abrir+Spotify" alt="Lista de Spotify de la boda">
-      </div>
-      <br><br>
-      <button class="btn btn-spotify" onclick="abrirSpotify()">
-        🎧 Abrir Lista en Spotify
-      </button>
-    </div>
-
-  </div>
-
-  <!-- Cartel flotante al copiar -->
-  <div id="toast" class="toast">¡Código copiado con éxito!</div>
-
-  <!-- Lógica JavaScript -->
-  <script>
-    // URL de tu formulario de Google Forms (Reemplazar con el enlace real)
-    const URL_GOOGLE_FORM = "https://docs.google.com/forms/";
-
-    // URL de tu Playlist colaborativa de Spotify (Reemplazar con la real)
-    const URL_SPOTIFY = "https://open.spotify.com/";
-
-    // Función para activar el GIF animado al hacer hover
-    function activarGif(idElemento, rutaGif) {
-      // El truco '?t=' fuerza a que el GIF se reproduzca siempre desde el inicio
-      document.getElementById(idElemento).src = rutaGif + '?t=' + new Date().getTime();
-    }
-
-    // Función para volver a la imagen fija al quitar el cursor
-    function desactivarGif(idElemento, rutaEstatico) {
-      document.getElementById(idElemento).src = rutaEstatico;
-    }
-
-    // Abrir Formulario de Confirmación
-    function abrirGoogleForm() {
-      window.open(URL_GOOGLE_FORM, '_blank');
-    }
-
-    // Acción para cuando declinan asistencia
-    function declinarAsistencia() {
-      alert("Lamentamos mucho que no nos puedas acompañar, ¡gracias por avisarnos!");
-    }
-
-    // Copiar Código de Novios al portapapeles
-    function copiarCodigo(texto) {
-      navigator.clipboard.writeText(texto).then(() => {
-        mostrarToast();
-      }).catch(err => {
-        console.error("Error al copiar: ", err);
-      });
-    }
-
-    // Mostrar notificación flotante
-    function mostrarToast() {
-      const toast = document.getElementById("toast");
-      toast.className = "toast show";
-      setTimeout(() => { 
-        toast.className = toast.className.replace("show", ""); 
-      }, 3000);
-    }
-
-    // Abrir Lista de Spotify
-    function abrirSpotify() {
-      window.open(URL_SPOTIFY, '_blank');
-    }
-  </script>
-</body>
-</html>
+                  onmouseover="activarGif('img-confirmo', 'brindis-animado.gif')"
+                  onmouseout="desactivarGif('img-confirmo', 'brindis-estatico.png')"
