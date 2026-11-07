@@ -29,7 +29,7 @@
 
     body {
       background-image: url('fondo.jpg');
-      background-size: cover;          
+      background-size: cover;         
       background-position: center;     
       background-repeat: no-repeat;    
       background-attachment: fixed;    
@@ -47,9 +47,8 @@
     .contenedor-invitacion {
       max-width: 600px;
       width: 100%;
-      /* Usamos blanco con un 85% de opacidad para que se alcance a ver el fondo sutilmente atrás */
       background: rgba(255, 255, 255, 0.88); 
-      backdrop-filter: blur(5px);       /* <--- Efecto borroso elegante en el fondo de la tarjeta */
+      backdrop-filter: blur(5px);       
       border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.15);
       overflow: hidden;
@@ -291,7 +290,7 @@
           <button class="btn btn-confirmar"
                   onmouseover="activarGif('img-confirmo', 'brindis-animado.gif')"
                   onmouseout="desactivarGif('img-confirmo', 'brindis-estatico.png')"
-                  onclick="abrirGoogleForm()">
+                  onclick="abrirGoogleFormSi()">
             ¡Sí, confirmo! 🥂
           </button>
         </div>
@@ -304,7 +303,7 @@
           <button class="btn btn-declinar"
                   onmouseover="activarGif('img-declino', 'caminar-animado.gif')"
                   onmouseout="desactivarGif('img-declino', 'caminar-estatico.png')"
-                  onclick="declinarAsistencia()">
+                  onclick="abrirGoogleFormNo()">
             No podré asistir
           </button>
         </div>
@@ -358,7 +357,7 @@
   <!-- Lógica JavaScript -->
   <script>
     const URL_GOOGLE_FORM_SI = "https://docs.google.com/forms/d/e/1FAIpQLSdENcY5INZYmt94StpiCtQ87w_M-Ppm5ORKSbU0fFJ-bjm8sg/viewform?usp=sharing&ouid=100235667818746556956";
-    const URL_GOOGLE_FORM_NO = "https://docs.google.com/forms/d/e/1FAIpQLSfpJfcQOurXBZSnB6PohxF0TMTqs2Ts9EGVt3h9AtFOASI75A/viewform?usp=sharing&ouid=100235667818746556956"; // O puedes repetir la misma URL si es el mismo form
+    const URL_GOOGLE_FORM_NO = "https://docs.google.com/forms/d/e/1FAIpQLSfpJfcQOurXBZSnB6PohxF0TMTqs2Ts9EGVt3h9AtFOASI75A/viewform?usp=sharing&ouid=100235667818746556956";
     const URL_SPOTIFY = "https://open.spotify.com/playlist/1A0km8qiYo55F4pJXAtHwP?si=kHB1Rs0AREqFcR06mgb2hA&utm_source=copy-link&pi=nTCs-3ftSpqqK&pt=2fe16fd8c0173131ec597ddfda2daf82";
 
     function activarGif(idElemento, rutaGif) {
@@ -369,12 +368,11 @@
       document.getElementById(idElemento).src = rutaEstatico;
     }
 
-    function abrirGoogleForm() {
-      window.open(URL_GOOGLE_FORM, '_blank');
+    function abrirGoogleFormSi() {
+      window.open(URL_GOOGLE_FORM_SI, '_blank');
     }
 
-    function declinarAsistencia() {
-      function declinarAsistencia() {
+    function abrirGoogleFormNo() {
       window.open(URL_GOOGLE_FORM_NO, '_blank');
     }
 
