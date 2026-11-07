@@ -357,7 +357,8 @@
 
   <!-- Lógica JavaScript -->
   <script>
-    const URL_GOOGLE_FORM = "https://docs.google.com/forms/d/e/1FAIpQLSdENcY5INZYmt94StpiCtQ87w_M-Ppm5ORKSbU0fFJ-bjm8sg/viewform?usp=header";
+    const URL_GOOGLE_FORM_SI = "https://docs.google.com/forms/d/e/1FAIpQLSdENcY5INZYmt94StpiCtQ87w_M-Ppm5ORKSbU0fFJ-bjm8sg/viewform?usp=sharing&ouid=100235667818746556956";
+    const URL_GOOGLE_FORM_NO = "https://docs.google.com/forms/d/e/1FAIpQLSfpJfcQOurXBZSnB6PohxF0TMTqs2Ts9EGVt3h9AtFOASI75A/viewform?usp=sharing&ouid=100235667818746556956"; // O puedes repetir la misma URL si es el mismo form
     const URL_SPOTIFY = "https://open.spotify.com/playlist/1A0km8qiYo55F4pJXAtHwP?si=kHB1Rs0AREqFcR06mgb2hA&utm_source=copy-link&pi=nTCs-3ftSpqqK&pt=2fe16fd8c0173131ec597ddfda2daf82";
 
     function activarGif(idElemento, rutaGif) {
@@ -373,7 +374,8 @@
     }
 
     function declinarAsistencia() {
-      alert("Lamentamos mucho que no nos puedas acompañar, ¡gracias por avisarnos!");
+      function declinarAsistencia() {
+      window.open(URL_GOOGLE_FORM_NO, '_blank');
     }
 
     function copiarCodigo(texto) {
