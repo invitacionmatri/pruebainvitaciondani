@@ -23,7 +23,7 @@
 
     * {
       box-sizing: border-box;
-      margin: 10px;
+      margin: 0;
       padding: 0;
     }
 
@@ -41,9 +41,10 @@
       align-items: center;
       min-height: 100vh;               
       padding: 20px 10px;
-      margin: 10px;
+      margin: 0;
     }
 
+    /* Contenedor principal de la tarjeta con margen lateral más amplio */
     .contenedor-invitacion {
       max-width: 600px;
       width: 100%;
@@ -54,7 +55,7 @@
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.4);
       text-align: center;
-      padding: 70px 70px;
+      padding: 40px 45px; /* Margen interior izquierdo y derecho más amplio */
     }
 
     h1, h2, h3 {
@@ -65,7 +66,7 @@
 
     .header-nombres {
       font-size: 2.8rem;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
 
     .subtitulo {
@@ -77,7 +78,7 @@
     }
 
     .seccion {
-      margin: 20px 0;
+      margin: 40px 0;
       padding: 20px 0;
       border-bottom: 1px solid #f0f0f0;
     }
@@ -98,6 +99,40 @@
       border-radius: 10px;
       margin-bottom: 25px;
     }
+
+    /* ESTILOS PARA LA CUENTA REGRESIVA */
+    .cuenta-regresiva {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .caja-tiempo {
+      background: #f7f9f6;
+      border: 1px solid #e2e8df;
+      padding: 12px 15px;
+      border-radius: 10px;
+      min-width: 75px;
+      text-align: center;
+    }
+
+    .numero-tiempo {
+      font-family: var(--fuente-titulo);
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--color-principal);
+      display: block;
+    }
+
+    .etiqueta-tiempo {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: #777;
+      letter-spacing: 1px;
+    }
+    /* FIN ESTILOS CUENTA REGRESIVA */
 
     .contenedor-rsvp {
       display: flex;
@@ -275,6 +310,29 @@
     <p class="subtitulo">¡Nos casamos!</p>
     <p>Te invitamos a compartir con nosotros este día tan especial.</p>
 
+    <!-- BLOQUE NUEVO: Cuenta Regresiva -->
+    <div class="seccion">
+      <h2 class="seccion-titulo">FALTAN...</h2>
+      <div class="cuenta-regresiva">
+        <div class="caja-tiempo">
+          <span id="dias" class="numero-tiempo">00</span>
+          <span class="etiqueta-tiempo">Días</span>
+        </div>
+        <div class="caja-tiempo">
+          <span id="horas" class="numero-tiempo">00</span>
+          <span class="etiqueta-tiempo">Horas</span>
+        </div>
+        <div class="caja-tiempo">
+          <span id="minutos" class="numero-tiempo">00</span>
+          <span class="etiqueta-tiempo">Minutos</span>
+        </div>
+        <div class="caja-tiempo">
+          <span id="segundos" class="numero-tiempo">00</span>
+          <span class="etiqueta-tiempo">Segundos</span>
+        </div>
+      </div>
+    </div>
+
     <!-- Sección RSVP con Efecto Hover en los GIF -->
     <div class="seccion">
       <h2 class="seccion-titulo">CONFIRMA TU ASISTENCIA</h2>
@@ -313,7 +371,7 @@
 
     <!-- Sección Ubicación -->
     <div class="seccion">
-      <h2 class="seccion-titulo">¿DÓNDE Y CUÁNDO?</h2>
+      <h2 class="seccion-titulo">¿Dónde & Cuándo?</h2>
       <p><strong>Fecha:</strong> Sábado, 12 de Noviembre - 18:00 hrs</p>
       <p><strong>Lugar:</strong> Casona los Naranjos, Santiago</p>
       <br>
@@ -324,19 +382,19 @@
 
     <!-- Sección Código Novios -->
     <div class="seccion">
-      <h2 class="seccion-titulo">CÓDIGO NOVIOS</h2>
+      <h2 class="seccion-titulo">Lista de Regalos</h2>
       <p>Tu presencia es nuestro mejor regalo, pero si deseas hacernos un detalle:</p>
       
       <div class="caja-novios" onclick="copiarCodigo('NOVIOS-SOFIA-LUCAS-2026')">
         <p>Haz clic para copiar el código de novios:</p>
         <div class="codigo-texto" id="codigo-novios">NOVIOS-SOFIA-LUCAS-2026</div>
-        <span class="tooltip-copiar"></span>
+        <span class="tooltip-copiar">Click para copiar en el portapapeles</span>
       </div>
     </div>
 
     <!-- Sección Lista de Spotify -->
     <div class="seccion">
-      <h2 class="seccion-titulo">MÚSICA Y FIESTA!</h2>
+      <h2 class="seccion-titulo">Música & Fiesta 🎵</h2>
       <p>¡Queremos que la fiesta sea inolvidable! Haz clic en la imagen o en el botón para agregar tus canciones favoritas a nuestra lista colaborativa de Spotify:</p>
       <br>
       
@@ -345,7 +403,7 @@
       </div>
       <br><br>
       <button class="btn btn-spotify" onclick="abrirSpotify()">
-       Abrir Lista en Spotify
+        🎧 Abrir Lista en Spotify
       </button>
     </div>
 
@@ -356,9 +414,35 @@
 
   <!-- Lógica JavaScript -->
   <script>
+    // Enlaces de tus formularios y Spotify
     const URL_GOOGLE_FORM_SI = "https://docs.google.com/forms/d/e/1FAIpQLSdENcY5INZYmt94StpiCtQ87w_M-Ppm5ORKSbU0fFJ-bjm8sg/viewform?usp=sharing&ouid=100235667818746556956";
     const URL_GOOGLE_FORM_NO = "https://docs.google.com/forms/d/e/1FAIpQLSfpJfcQOurXBZSnB6PohxF0TMTqs2Ts9EGVt3h9AtFOASI75A/viewform?usp=sharing&ouid=100235667818746556956";
     const URL_SPOTIFY = "https://open.spotify.com/playlist/1A0km8qiYo55F4pJXAtHwP?si=kHB1Rs0AREqFcR06mgb2hA&utm_source=copy-link&pi=nTCs-3ftSpqqK&pt=2fe16fd8c0173131ec597ddfda2daf82";
+
+    // CONFIGURACIÓN DE LA FECHA DE LA BODA (Año, Mes (0-11, ej: 10 es Noviembre), Día, Hora, Minuto)
+    const fechaBoda = new Date(2026, 10, 12, 18, 0, 0).getTime();
+
+    // Función que calcula y actualiza los números de la cuenta regresiva cada segundo
+    const actualizarCuentaRegresiva = setInterval(() => {
+      const ahora = new Date().getTime();
+      const diferencia = fechaBoda - ahora;
+
+      if (diferencia < 0) {
+        clearInterval(actualizarCuentaRegresiva);
+        document.querySelector(".cuenta-regresiva").innerHTML = "¡L llegó el gran día! 🎉";
+        return;
+      }
+
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+      document.getElementById("dias").innerText = String(dias).padStart(2, '0');
+      document.getElementById("horas").innerText = String(horas).padStart(2, '0');
+      document.getElementById("minutos").innerText = String(minutos).padStart(2, '0');
+      document.getElementById("segundos").innerText = String(segundos).padStart(2, '0');
+    }, 1000);
 
     function activarGif(idElemento, rutaGif) {
       document.getElementById(idElemento).src = rutaGif + '?t=' + new Date().getTime();
